@@ -8,12 +8,16 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class NewThread {
+
     public static void main(String[] args) throws Exception {
         Thread threadExtend = new ThreadExtend();
         Thread threadImplRunnable = new Thread(new ThreadImplRunnable());
         Thread threadArrowRunnable = new Thread(() -> System.out.println("Thread implements Runnable with Arrow Function"));
 
-        FutureTask<String> futureTask = new FutureTask<>(new ThreadImplCallable());
+        FutureTask<String> futureTask = new FutureTask<>(()->{
+            System.out.println("Thread implements Callable");
+            return "Done";
+        });
         Thread threadImplCallable = new Thread(futureTask);
 
         threadExtend.start();
@@ -39,7 +43,8 @@ public class NewThread {
                 e.printStackTrace();
             }
             return "Future 2 Done";
-        }).completeOnTimeout("Empty Value on timeout", 1000, TimeUnit.MILLISECONDS);;
+        }).completeOnTimeout("Empty Value on timeout", 1000, TimeUnit.MILLISECONDS);
+        ;
 
         System.out.println(
                 Stream.of(completableFuture1, completableFuture2)
