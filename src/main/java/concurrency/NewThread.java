@@ -13,13 +13,12 @@ public class NewThread {
 
     public static void main(String[] args) throws Exception {
         Thread threadExtend = new ThreadExtend();
+
         Thread threadImplRunnable = new Thread(new ThreadImplRunnable());
+
         Thread threadArrowRunnable = new Thread(() -> System.out.println("Thread implements Runnable with Arrow Function"));
 
-        FutureTask<String> futureTask = new FutureTask<>(()->{
-            System.out.println("Thread implements Callable");
-            return "Done";
-        });
+        FutureTask<String> futureTask = new FutureTask<>(new ThreadImplCallable());
         Thread threadImplCallable = new Thread(futureTask);
 
         // Method 1: extends Thread
@@ -33,7 +32,6 @@ public class NewThread {
 
         // Method 4: Use FutureTask, implement Callable
         threadImplCallable.start();
-
         System.out.println(futureTask.get());
 
         // Method 5: CompletableFuture and supplyAsync()
