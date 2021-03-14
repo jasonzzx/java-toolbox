@@ -13,7 +13,7 @@ public class ThreadLocalTest {
     }
 
     public static List<String> clear() {
-        List<String> messages = holder.get().messages;
+        var messages = holder.get().messages;
         holder.remove();
 
         System.out.println("size: " + holder.get().messages.size());

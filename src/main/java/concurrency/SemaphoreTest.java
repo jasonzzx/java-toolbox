@@ -6,7 +6,7 @@ public class SemaphoreTest {
     public static void main(String[] args) {
         int N = 8;            // 8 workers
 
-        Semaphore semaphore = new Semaphore(2); // 2 machines
+        var semaphore = new Semaphore(2); // 2 machines
 
         for (int i = 0; i < N; i++) {
             new Worker(i, semaphore).start();
