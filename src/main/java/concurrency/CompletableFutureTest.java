@@ -1,9 +1,13 @@
-import java.util.concurrent.completableFuture;
+package concurrency;
+
+import java.time.Duration;
+import java.time.Instant;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
-public class Test {
+public class CompletableFutureTest {
     public static void main(String[] args) {
-        Test test = new Test();
+        CompletableFutureTest test = new CompletableFutureTest();
  
         Instant start = Instant.now();
         int result = test.getTwo() + test.getThree();
