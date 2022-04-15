@@ -28,7 +28,7 @@ public class CollectionTest {
         System.out.println(deque);
 
         Queue<Integer> queue = new LinkedList<>(); // FIFO
-        queue.add(1);queue.add(2);queue.add(3);queue.add(4);queue.add(5);
+        queue.offer(1);queue.offer(2);queue.offer(3);
         System.out.println(queue.poll()); // 1
         System.out.println(queue.poll()); // 2
 
